@@ -1,5 +1,5 @@
 import React from 'react'
-//test
+
 export default function Button(props) {
     const { text, func } = props
     return (
