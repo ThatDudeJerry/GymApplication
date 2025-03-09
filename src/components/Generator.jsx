@@ -19,7 +19,7 @@ function Header(props) {
 }
 
 export default function Generator(props) {
-    const {muscles, setMuscles, goal, setGoal, poison, setPoison, updateWorkout} = props
+    const {muscles, setMuscles, goal, setGoal, poison, setPoison, updateWorkout } = props
     const [showModal, setShowModal] = useState(false)
     // let showModal = false
 
@@ -54,17 +54,22 @@ export default function Generator(props) {
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
             {Object.keys(WORKOUTS).map((type, typeIndex) => {
                 return (
-                    <button onClick={() => {
+                    <button func={() => {
+                        window.location.href = '#generate'
+                        }}
+                        onClick={() => {
+                        
                         setMuscles([])
                         setPoison(type)
-                    }} className= {'bg-slate-950 px-4 border border-blue-400 duration-200 rounded-lg py-3 hover:cursor-pointer hover:border-blue-600 ' + (type === poison ? 'border-blue-600' : 'border-blue-400')} key={typeIndex}>
+                        
+                    }} className= {'bg-slate-950 px-4 border border-blue-400 border-[2px] duration-200 rounded-lg py-3 hover:cursor-pointer hover:border-blue-800 ' + (type === poison ? 'border-blue-800' : 'border-blue-400')} key={typeIndex}>
                         <p className='capitalize'>{type.replaceAll('_', " ")}</p>
                     </button>
                 )
             })}
             </div>
-            <Header index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation.'}></Header>
-            <div className='bg-slate-950 flex flex-col border border-solid border-blue-400 rounded-lg '>
+            <Header id={'02scroll'} index={'02'} title={'Lock on targets'} description={'Select the muscles judged for annihilation.'}></Header>
+            <div className='bg-slate-950 flex flex-col border border-solid border-blue-400 border-[2px] rounded-lg '>
                 <button onClick={toggleModal} className='relative flex py-3 items-center justify-center hover:cursor-pointer'>
                     <p className='capitalize'> {muscles.length == 0 ? 'Select muscle groups' : muscles.join(' ')}</p>
                     <i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>
@@ -89,7 +94,7 @@ export default function Generator(props) {
                 return (
                     <button onClick={() => {
                         setGoal(scheme)
-                    }} className= {'bg-slate-950 px-4 border border-blue-400 duration-200 rounded-lg py-3 hover:cursor-pointer hover:border-blue-600 ' + (scheme === goal ? 'border-blue-600' : 'border-blue-400')} key={schemeIndex}>
+                    }} className= {'bg-slate-950 px-4 border border-blue-400 border-[2px] duration-200 rounded-lg py-3 hover:cursor-pointer hover:border-blue-800 ' + (scheme === goal ? 'border-blue-800' : 'border-blue-400')} key={schemeIndex}>
                         <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
                     </button>
                 )

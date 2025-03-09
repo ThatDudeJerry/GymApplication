@@ -160,6 +160,7 @@ function exercisesFlattener(exercisesObj) {
 
                 flattenedObj[variantName] = {
                     ...val,
+                    key: val.key,
                     description: val.description + '___' + val.variants[variant],
                     substitutes: [
                         ...val.substitutes, variantSubstitutes

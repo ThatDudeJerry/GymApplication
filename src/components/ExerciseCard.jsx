@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function ExcerciseCard(props) {
+export default function ExerciseCard(props) {
     
     const {exercise, i} = props
     const [setsCompleted, setSetsComplete] = useState(0)
@@ -24,9 +24,9 @@ export default function ExcerciseCard(props) {
             </div>
 
             <div className='flex flex-col bg-slate-950 rounded gap-2'>
-                {exercise.description.split('___').map((val) => {
+                {exercise.description.split('___').map((val,index) => {
                     return (
-                        <div className='text-sm'>
+                        <div key={index + 1} className='text-sm'>
                             {val}
                         </div>
                     )

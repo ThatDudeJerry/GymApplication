@@ -15,9 +15,14 @@ function App() {
     return}
       let newWorkout =  generateWorkout({poison, muscles, goal})
       setWorkout(newWorkout)
-  
-      window.location.href = '#workout'
+      setTimeout(goToWorkout, 100);
+      
     
+  }
+
+  function goToWorkout() {
+    window.location.href = '#workout'
+    console.log("Button click")
   }
 
   return (
